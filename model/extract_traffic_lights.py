@@ -1,5 +1,5 @@
-import cv2 # Computer vision library
-import object_detection # Contains methods for object detection in images
+import cv2
+import object_detection
  
 # Get a list of jpeg image files containing traffic lights
 files = object_detection.get_files('traffic_light_input/*.jpg')

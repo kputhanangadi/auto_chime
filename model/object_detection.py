@@ -1,8 +1,8 @@
-import tensorflow as tf # Machine learning library
-from tensorflow import keras # Library for neural networks
-import numpy as np # Scientific computing library
-import cv2 # Computer vision library
-import glob # Filename handling library
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import cv2
+import glob
  
 # Inception V3 model for Keras
 from tensorflow.keras.applications.inception_v3 import preprocess_input
