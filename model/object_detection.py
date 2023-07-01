@@ -5,8 +5,11 @@ import cv2
 import glob
  
 # Inception V3 model for Keras
+from tensorflow.keras.applications.inception_v3 import InceptionV3
 from tensorflow.keras.applications.inception_v3 import preprocess_input
- 
+
+print('hi')
+
 # To detect objects, we will use a pretrained neural network that has been 
 # trained on the COCO data set. You can read more about this data set here: 
 #   https://content.alegion.com/datasets/coco-ms-coco-dataset
