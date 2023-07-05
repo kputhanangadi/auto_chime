@@ -1,8 +1,3 @@
-# Project: How to Detect and Classify Traffic Lights
-# Author: Addison Sears-Collins
-# Date created: January 11, 2021
-# Description: This program extracts traffic lights from images.
- 
 import cv2 # Computer vision library
 import object_detection # Contains methods for object detection in images
  
