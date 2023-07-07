@@ -1,15 +1,19 @@
-import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-import cv2
-import glob
+# Project: How to Detect and Classify Traffic Lights
+# Author: Addison Sears-Collins
+# Date created: January 11, 2021
+# Description: This program helps detect objects (e.g. traffic lights) in
+#   images.
+ 
+import tensorflow as tf # Machine learning library
+from tensorflow import keras # Library for neural networks
+import numpy as np # Scientific computing library
+import cv2 # Computer vision library
+import keras
+import glob # Filename handling library
  
 # Inception V3 model for Keras
-from tensorflow.keras.applications.inception_v3 import InceptionV3
-from tensorflow.keras.applications.inception_v3 import preprocess_input
-
-print('1')
-
+from keras.applications.inception_v3 import preprocess_input
+ 
 # To detect objects, we will use a pretrained neural network that has been 
 # trained on the COCO data set. You can read more about this data set here: 
 #   https://content.alegion.com/datasets/coco-ms-coco-dataset
@@ -20,9 +24,7 @@ LABEL_BUS = 6
 LABEL_TRUCK = 8
 LABEL_TRAFFIC_LIGHT = 10
 LABEL_STOP_SIGN = 13
-
-print('2')
-
+ 
 def accept_box(boxes, box_index, tolerance):
   """
   Eliminate duplicate bounding boxes.
@@ -60,7 +62,6 @@ def load_model(model_name):
   :param:str Name of the pretrained object detection model
   """
   url = 'http://download.tensorflow.org/models/object_detection/tf2/20200711/' + model_name + '.tar.gz'
-  
      
   # Download a file from a URL that is not already in the cache
   model_dir = tf.keras.utils.get_file(fname=model_name, untar=True, origin=url)
@@ -142,11 +143,11 @@ def save_image_annotated(img_rgb, file_name, output, model_traffic_lights=None):
              
       if model_traffic_lights:
        
-        # Annotate the image and save it
+              # Annotate the image and save it
         img_traffic_light = img_rgb[box["y"]:box["y2"], box["x"]:box["x2"]]
         img_inception = cv2.resize(img_traffic_light, (299, 299))
          
-        # Uncomment this if you want to save a cropped image of the traffic light
+                # Uncomment this if you want to save a cropped image of the traffic light
         #cv2.imwrite(output_file.replace('.jpg', '_crop.jpg'), cv2.cvtColor(img_inception, cv2.COLOR_RGB2BGR))
         img_inception = np.array([preprocess_input(img_inception)])
  
@@ -161,13 +162,8 @@ def save_image_annotated(img_rgb, file_name, output, model_traffic_lights=None):
           label_text = "Red " + score_light
         else:
           label_text = 'NO-LIGHT'  # This is not a traffic light
-    """
-    WE CAN CHANGE THIS LINE TO IMPROVE PREFORAMNCE AFTER TESTINT THE MODEL --------------------------------------------------
-    """
+ 
     if color and label_text and accept_box(output["boxes"], idx, 5.0) and score > 50:
-      """
-    -------------------------------------------------------------------------------------------------------------------------
-      """
       cv2.rectangle(img_rgb, (box["x"], box["y"]), (box["x2"], box["y2"]), color, 2)
       cv2.putText(img_rgb, label_text, (box["x"], box["y"]), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
  
@@ -268,16 +264,16 @@ def perform_object_detection_video(model, video_frame, model_traffic_lights=None
     # if obj_class == LABEL_TRUCK:
       # color = (255, 255, 0)
       # label_text = "Truck " + str(score)
-    # if obj_class == LABEL_STOP_SIGN:
-    #   color = (128, 0, 0)
-    #   label_text = "Stop Sign " + str(score)
+    if obj_class == LABEL_STOP_SIGN:
+      color = (128, 0, 0)
+      label_text = "Stop Sign " + str(score)
     if obj_class == LABEL_TRAFFIC_LIGHT:
       color = (255, 255, 255)
       label_text = "Traffic Light " + str(score)
              
       if model_traffic_lights:
        
-        # Annotate the image and save it
+              # Annotate the image and save it
         img_traffic_light = img_rgb[box["y"]:box["y2"], box["x"]:box["x2"]]
         img_inception = cv2.resize(img_traffic_light, (299, 299))
          
