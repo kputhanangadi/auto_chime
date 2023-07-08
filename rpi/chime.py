@@ -4,9 +4,9 @@ def main():
 
 	pygame.init()
 
-	file_path = 'sample.wav'
+	file_path = 'chime.wav'
 
-	chime = pygame.mixer.Sound('sample.wav')
+	chime = pygame.mixer.Sound(file_path)
 
 	playing = chime.play()
 
