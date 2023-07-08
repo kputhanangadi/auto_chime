@@ -1,10 +1,17 @@
 import pygame
 
-pygame.init()
+def main():
 
-chime = pygame.mixer.Sound('rpi/chime.wav')
+	pygame.init()
 
-playing = chime.play()
+	file_path = 'sample.wav'
 
-while playing.get_busy():
-	pygame.time.delay(100)
+	chime = pygame.mixer.Sound('sample.wav')
+
+	playing = chime.play()
+
+	while playing.get_busy():
+		pygame.time.delay(100)
+
+if __name__ == "__main__":
+	main()
