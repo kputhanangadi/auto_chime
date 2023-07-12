@@ -1,5 +1,4 @@
 import cv2
-import pathlib
 import os
 
 # Open the webcam
