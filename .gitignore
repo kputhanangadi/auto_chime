@@ -179,3 +179,5 @@ pyrightconfig.json
 .vscode
 .venv
 __pycache__
+
+model/traffic_light_cropped/
