@@ -1,10 +1,12 @@
 import pygame
+from pathlib import Path
+import os
 
 def main():
 
 	pygame.init()
 
-	file_path = 'chime.wav'
+	file_path = os.path.abspath('/home/pi/Desktop/auto_chime/rpi/sample.wav')
 
 	chime = pygame.mixer.Sound(file_path)
 
