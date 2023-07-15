@@ -1,0 +1,4 @@
+[filter "strip-notebook-output"]
+    clean = python strip_notebook_output.py %f
+    smudge = cat
+    required = true
