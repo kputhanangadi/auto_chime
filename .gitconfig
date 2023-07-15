@@ -1,2 +1,4 @@
 [filter "strip-notebook-output"]
-    clean = "jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to=notebook --stdin --stdout --log-level=ERROR"
+    clean = python strip_notebook_output.py
+    smudge = cat
+    required = true
