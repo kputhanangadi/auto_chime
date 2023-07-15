@@ -1,0 +1,9 @@
+version: '3'
+services:
+  model:
+    image: imcalvin/autochime_model:dev
+    volumes:
+      - ./model:/app
+    command: jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+    ports:
+      - "8888:8888"

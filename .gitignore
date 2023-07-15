@@ -177,7 +177,7 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 .vscode
-.venv
+.venv*
 __pycache__
 
 # model/traffic_light_cropped/
