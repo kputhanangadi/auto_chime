@@ -14,14 +14,14 @@ import object_detection # Custom object detection program
 import sys
 import tensorflow as tf # Machine learning library
 from tensorflow import keras # Library for neural networks
-from tensorflow.keras.applications.inception_v3 import InceptionV3, preprocess_input
-from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
-from tensorflow.keras.layers import Dense, Flatten, Dropout, GlobalAveragePooling2D, GlobalMaxPooling2D, BatchNormalization
-from tensorflow.keras.losses import categorical_crossentropy
-from tensorflow.keras.models import Model, Sequential
-from tensorflow.keras.optimizers import Adam, Adadelta
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.utils import to_categorical
+from keras.applications.inception_v3 import InceptionV3, preprocess_input
+from keras.callbacks import ModelCheckpoint, EarlyStopping
+from keras.layers import Dense, Flatten, Dropout, GlobalAveragePooling2D, GlobalMaxPooling2D, BatchNormalization
+from keras.losses import categorical_crossentropy
+from keras.models import Model, Sequential
+from keras.optimizers import Adam, Adadelta
+from keras.preprocessing.image import ImageDataGenerator
+from keras.utils import to_categorical
 sys.path.append('../')
  
 # Show the version of TensorFlow and Keras that I am using

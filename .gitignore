@@ -180,4 +180,4 @@ pyrightconfig.json
 .venv
 __pycache__
 
-# model/traffic_light_cropped/
+model/traffic_light_cropped/
