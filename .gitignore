@@ -183,3 +183,5 @@ __pycache__
 # model/traffic_light_cropped/
 
 *.h5
+
+traffic_light_input/
