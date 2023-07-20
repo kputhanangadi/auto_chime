@@ -181,3 +181,5 @@ pyrightconfig.json
 __pycache__
 
 # model/traffic_light_cropped/
+
+*.h5
