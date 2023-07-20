@@ -183,3 +183,4 @@ __pycache__
 # model/traffic_light_cropped/
 
 *.h5
+*.DS_Store
