@@ -10,6 +10,8 @@ def main():
 
 	playing = chime.play()
 
+	# hi this is a comment from riyne :D
+
 	while playing.get_busy():
 		pygame.time.delay(100)
 
